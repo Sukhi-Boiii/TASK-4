@@ -1,0 +1,39 @@
+
+# 🧱 Cyber Security Internship - Task 4 Notes
+
+## Task: Setup and Use a Firewall on Linux (UFW)
+
+---
+
+## Commands Used
+
+```bas
+# Enable UFW
+sudo ufw enable
+
+# Show current status
+sudo ufw status verbose
+
+# Set default rules
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow important ports
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+
+# Block port 23 (Telnet)
+sudo ufw deny 23
+
+# Test port 23 block
+nc -zv localhost 23
+
+# Rate limit SSH (anti-brute-force)
+sudo ufw limit ssh
+
+# Enable logging
+sudo ufw logging on
+
+# Remove deny rule from port 23
+sudo ufw delete deny 23
